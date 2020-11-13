@@ -24,7 +24,7 @@ final class ParameterControllerTests: XCTestCase {
         app.shutdown()
     }
 
-    func test_all_whenSuccess_shouldReturnParameters() throws {
+    func test_all_withSuccess_shouldReturnParameters() throws {
         // Given
         let databaseModel = DatabaseHelper.createParameter(app: app, key: "key", standard: "This is nice.")
         mockService.stubbedListResult = app.nextEventLoop.makeSucceededFuture([databaseModel])
@@ -43,7 +43,7 @@ final class ParameterControllerTests: XCTestCase {
         XCTAssertTrue(mockService.invokedList)
     }
 
-    func test_all_whenFailure_shouldThrowError() throws {
+    func test_all_withFailure_shouldThrowError() throws {
         // Given
         mockService.stubbedListError = TestError()
 
