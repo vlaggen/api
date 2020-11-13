@@ -1,0 +1,21 @@
+{
+    "name": "Vlaggen API",
+    "description": "An API to retrieve parameters",
+    "repository": "https://github.com/vlaggen/api",
+    "keywords": [
+        "vapor",
+        "remote-config",
+        "feature-flags",
+        "flags"
+    ],
+    "addons": [
+        {
+            "plan": "heroku-postgresql"
+        }
+    ],
+    "buildpacks": [
+        {
+            "url": "vapor/vapor"
+        }
+    ]
+}
