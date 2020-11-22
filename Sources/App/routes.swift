@@ -8,5 +8,9 @@ func routes(_ app: Application) throws {
     let parameterController = ParameterController()
     let parameters = v1.grouped("parameters")
     parameterController.routes(routes: parameters)
+
+    let userController = UserController()
+    let users = v1.grouped("users")
+    userController.routes(routes: users)
     
 }

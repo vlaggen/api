@@ -29,8 +29,15 @@ final class DatabaseHelper {
 
         return model
     }
-}
 
+    @discardableResult
+    static func createUser(app: Application, email: String, password: String = "password") -> UserDatabaseModel {
+        let model = UserDatabaseModel(email: email, password: password, firstName: nil)
+        try? model.save(on: app.db).wait()
+
+        return model
+    }
+}
 fileprivate extension String {
     var data: Data {
         self.data(using: .utf8) ?? Data()

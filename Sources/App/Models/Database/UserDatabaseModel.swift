@@ -27,10 +27,12 @@ final class UserDatabaseModel: Model {
 
     init(id: UUID? = nil,
          email: String,
-         password: String
+         password: String,
+         firstName: String?
     ) {
         self.id = id
         self.email = email
         self.password = password
+        self.firstName = firstName
     }
 }
