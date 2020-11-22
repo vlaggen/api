@@ -1,6 +1,7 @@
 @testable import App
 import Vapor
 import XCTest
+import VlaggenNetworkModels
 
 final class ParameterControllerTests: XCTestCase {
 

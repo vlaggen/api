@@ -13,6 +13,8 @@ let package = Package(
         .package(url: "https://github.com/vapor/fluent-postgres-driver.git", from: "2.1.0"),
 
         .package(url: "https://github.com/vapor/fluent-sqlite-driver.git", from: "4.0.1"),
+
+        .package(url: "https://github.com/vlaggen/swift-network-models.git", from: "1.0.1"),
     ],
     targets: [
         .target(
@@ -20,7 +22,9 @@ let package = Package(
             dependencies: [
                 .product(name: "Fluent", package: "fluent"),
                 .product(name: "FluentPostgresDriver", package: "fluent-postgres-driver"),
-                .product(name: "Vapor", package: "vapor")
+                .product(name: "Vapor", package: "vapor"),
+
+                .product(name: "VlaggenNetworkModels", package: "swift-network-models"),
             ],
             swiftSettings: [
                 // Enable better optimizations when building in Release configuration. Despite the use of

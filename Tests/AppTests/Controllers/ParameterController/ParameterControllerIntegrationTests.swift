@@ -2,6 +2,7 @@
 import Vapor
 import XCTest
 import XCTVapor
+import VlaggenNetworkModels
 
 final class ParameterControllerIntegrationTests: XCTestCase {
 
