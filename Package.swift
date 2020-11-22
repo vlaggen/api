@@ -14,7 +14,7 @@ let package = Package(
 
         .package(url: "https://github.com/vapor/fluent-sqlite-driver.git", from: "4.0.1"),
 
-        .package(url: "https://github.com/vlaggen/swift-network-models.git", from: "1.0.1"),
+        .package(url: "https://github.com/vlaggen/swift-network-models.git", .branch("feature/add-user-support")),
     ],
     targets: [
         .target(

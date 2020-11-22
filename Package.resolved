@@ -158,9 +158,9 @@
         "package": "swift-network-models",
         "repositoryURL": "https://github.com/vlaggen/swift-network-models.git",
         "state": {
-          "branch": null,
-          "revision": "865c84dc705a26d4c45a74a41bb790aa60c37389",
-          "version": "1.0.1"
+          "branch": "feature/add-user-support",
+          "revision": "e794cfcb15cf0d679dc4750047bea1da5210811d",
+          "version": null
         }
       },
       {
