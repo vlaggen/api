@@ -10,6 +10,11 @@ struct ParameterService: ParameterServiceLogic {
     func list(db: Database) throws -> EventLoopFuture<[ParameterDatabaseModel]> {
         return ParameterDatabaseModel
             .query(on: db)
+            .with(\.$conditions)
+            .with(\.$conditions, { loader in
+                loader.with(\.$requirements)
+            })
+            .with(\.$conditionValues)
             .all()
     }
 }

@@ -4,6 +4,7 @@ import Vapor
 final class DatabaseHelper {
     static func createParameter(app: Application, key: String = "key", description: String = "description", standard: String) -> ParameterDatabaseModel {
         let model = ParameterDatabaseModel(key: key, description: description, standard: standard.data)
+        model.$conditions.value = []
         try? model.save(on: app.db).wait()
 
         return model
