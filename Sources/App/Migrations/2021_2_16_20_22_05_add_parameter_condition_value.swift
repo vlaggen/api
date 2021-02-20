@@ -11,8 +11,8 @@ struct AddParameterConditionValueMigration: Migration {
                 .field(ParameterConditionValueDatabaseModel.FieldKeys.parameterId, .uuid, .required)
                 .field(ParameterConditionValueDatabaseModel.FieldKeys.conditionId, .uuid, .required)
 
-                .field(ParameterDatabaseModel.FieldKeys.createdAt, .datetime, .required)
-                .field(ParameterDatabaseModel.FieldKeys.updatedAt, .datetime, .required)
+                .field(ParameterConditionValueDatabaseModel.FieldKeys.createdAt, .datetime, .required)
+                .field(ParameterConditionValueDatabaseModel.FieldKeys.updatedAt, .datetime, .required)
 
                 .create(),
         ])
