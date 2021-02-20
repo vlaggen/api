@@ -12,8 +12,6 @@ struct AddConditionRequirementMigration: Migration {
                 .field(RequirementDatabaseModel.FieldKeys.createdAt, .datetime, .required)
                 .field(RequirementDatabaseModel.FieldKeys.updatedAt, .datetime, .required)
 
-//                .unique(on: ParameterDatabaseModel.FieldKeys.key, name: "uq:key") // TODO
-
                 .create(),
         ])
     }
