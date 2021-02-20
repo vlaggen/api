@@ -10,7 +10,6 @@ struct ParameterController {
         self.service = service
     }
 
-    // TODO: Certainly needs way more testing
     func all(req: Request) throws -> EventLoopFuture<[ParameterResponse]> {
         return try service.list(db: req.db)
             .map { (parameters) -> ([ParameterDatabaseModel]) in
