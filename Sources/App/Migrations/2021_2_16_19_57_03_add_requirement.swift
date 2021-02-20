@@ -19,7 +19,7 @@ struct AddRequirementMigration: Migration {
 
     func revert(on database: Database) -> EventLoopFuture<Void> {
         database.eventLoop.flatten([
-            database.schema(ParameterDatabaseModel.schema).delete(),
+            database.schema(RequirementDatabaseModel.schema).delete(),
         ])
     }
 }
