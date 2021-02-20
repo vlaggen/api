@@ -2,7 +2,7 @@ import Vapor
 import Fluent
 
 final class ConditionRequirementDatabaseModel: Model {
-    static let schema = "parameter+requirement"
+    static let schema = "condition+requirement"
 
     struct FieldKeys {
         static var conditionId: FieldKey { "conditionId" }
