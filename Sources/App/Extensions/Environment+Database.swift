@@ -9,4 +9,11 @@ extension Environment {
         return url
     }
 
+    static var unverifiedTLS: Bool {
+        guard let string = Environment.get("UNVERIFIED_TLS"), let value = Bool(string) else {
+            return false
+        }
+        return value
+    }
+
 }

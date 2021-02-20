@@ -8,6 +8,12 @@
         "feature-flags",
         "flags"
     ],
+    "env": {
+        "UNVERIFIED_TLS": {
+            "description": "Unverified TLS is required to be true if you are deploying Heroku Postgres's standard plan",
+            "value": "true"
+        }
+    },
     "addons": [
         {
             "plan": "heroku-postgresql"
