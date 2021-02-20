@@ -41,6 +41,11 @@ struct ParameterController {
                                     return false
                                 }
 
+                                if let value = req.query[Bool.self, at: requirement.when],
+                                   let valueThen = Bool(requirement.then) {
+                                    return Comparator.compare(lhs: value, operator: `operator`, rhs: valueThen)
+                                }
+
                                 if let value = req.query[Double.self, at: requirement.when],
                                    let valueThen = Double(requirement.then) {
                                     return Comparator.compare(lhs: value, operator: `operator`, rhs: valueThen)
@@ -78,7 +83,6 @@ struct ParameterController {
     }
 }
 
-// TODO: Test
 extension Collection {
     public func match(includeElement: (Self.Element) -> Bool) -> Bool {
         if isEmpty {

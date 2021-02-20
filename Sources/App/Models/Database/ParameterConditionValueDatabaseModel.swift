@@ -25,4 +25,15 @@ final class ParameterConditionValueDatabaseModel: Model {
 
     @Timestamp(key: FieldKeys.createdAt, on: .create) var createdAt: Date?
     @Timestamp(key: FieldKeys.updatedAt, on: .update) var updatedAt: Date?
+
+    init() {}
+
+    init(parameterId: ParameterDatabaseModel.IDValue,
+         conditionId: ConditionDatabaseModel.IDValue,
+         value: Data
+    ) {
+        self.parameterId = parameterId
+        self.conditionId = conditionId
+        self.value = value
+    }
 }

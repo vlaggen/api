@@ -20,4 +20,15 @@ final class RequirementDatabaseModel: Model {
 
     @Timestamp(key: FieldKeys.createdAt, on: .create) var createdAt: Date?
     @Timestamp(key: FieldKeys.updatedAt, on: .update) var updatedAt: Date?
+
+    init() {}
+
+    init(when: String,
+         operator: String,
+         then: String
+    ) {
+        self.when = when
+        self.operator = `operator`
+        self.then = then
+    }
 }

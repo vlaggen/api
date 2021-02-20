@@ -22,4 +22,13 @@ final class ConditionRequirementDatabaseModel: Model {
 
     @Timestamp(key: FieldKeys.createdAt, on: .create) var createdAt: Date?
     @Timestamp(key: FieldKeys.updatedAt, on: .update) var updatedAt: Date?
+
+    init() {}
+
+    init(conditionId: ConditionDatabaseModel.IDValue,
+         requirementId: RequirementDatabaseModel.IDValue
+    ) {
+        self.conditionId = conditionId
+        self.requirementId = requirementId
+    }
 }
