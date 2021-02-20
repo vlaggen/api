@@ -18,6 +18,12 @@ final class ParameterDatabaseModel: Model {
     @Field(key: FieldKeys.description) var description: String
     @Field(key: FieldKeys.standard) var standard: Data
 
+    @Siblings(through: ParameterConditionValueDatabaseModel.self, from: \.$parameter, to: \.$condition)
+    var conditions: [ConditionDatabaseModel]
+
+    @Children(for: \.$parameter)
+    var conditionValues: [ParameterConditionValueDatabaseModel]
+
     @Timestamp(key: FieldKeys.createdAt, on: .create) var createdAt: Date?
     @Timestamp(key: FieldKeys.updatedAt, on: .update) var updatedAt: Date?
 

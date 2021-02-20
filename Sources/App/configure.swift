@@ -11,5 +11,9 @@ public func configure(_ app: Application) throws {
 
     app.migrations.add([
         AddParameterMigration(),
+        AddConditionMigration(),
+        AddRequirementMigration(),
+        AddConditionRequirementMigration(),
+        AddParameterConditionValueMigration(),
     ])
 }

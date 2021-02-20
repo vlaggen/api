@@ -30,6 +30,8 @@ final class ParameterServiceTests: XCTestCase {
 
         let req = Request(application: app, on: app.nextEventLoop)
 
+        let expectation = XCTestExpectation(description: "Expectation")
+
         // When
         try sut.list(db: req.db).whenCompleteAssertSuccess { (models) in
             // Then
@@ -42,7 +44,11 @@ final class ParameterServiceTests: XCTestCase {
             XCTAssertEqual(models[2].standard, "1.4".data)
             XCTAssertEqual(models[3].key, "key_4")
             XCTAssertEqual(models[3].standard, "true".data)
+
+            expectation.fulfill()
         }
+
+        wait(for: [expectation], timeout: 1)
     }
 }
 
