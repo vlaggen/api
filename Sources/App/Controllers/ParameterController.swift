@@ -24,7 +24,6 @@ struct ParameterController {
                         return $0.requirements.count > $1.requirements.count
                     })
 
-                    // TODO: This can be extracted into a separate object
                     for condition in conditions {
                         req.logger.info(" - Condition: \(condition.title)")
 
@@ -37,25 +36,18 @@ struct ParameterController {
                         let matchingRequirements = condition.requirements
                             .match { (requirement) -> Bool in
 
-                                // TODO: Move this logic to somewhere better testable
-                                if let value = req.query[Double.self, at: requirement.when],
-                                   let valueThen = Double(requirement.then) {
-                                    switch requirement.operator {
-                                        case "==": return value == valueThen
-                                        case "!=": return value != valueThen
-                                        case ">": return value > valueThen
-                                        case "<": return value < valueThen
-                                        default: return false
-                                    }
+                                guard let `operator` = Operator(rawValue: requirement.operator) else {
+                                    req.logger.error("Operator is not supported \(requirement.operator)")
+                                    return false
                                 }
 
-                                // TODO: Move this logic to somewhere better testable
+                                if let value = req.query[Double.self, at: requirement.when],
+                                   let valueThen = Double(requirement.then) {
+                                    return Comparator.compare(lhs: value, operator: `operator`, rhs: valueThen)
+                                }
+
                                 if let value = req.query[String.self, at: requirement.when] {
-                                    switch requirement.operator {
-                                        case "==": return value == requirement.then
-                                        case "!=": return value != requirement.then
-                                        default: return false
-                                    }
+                                    return Comparator.compare(lhs: value, operator: `operator`, rhs: requirement.then)
                                 }
 
                                 return false
@@ -72,7 +64,6 @@ struct ParameterController {
                         }
                     }
 
-                    // TODO: Not so very nice but OK
                     req.logger.info("Value: \(String(data: parameter.standard, encoding: .utf8) ?? "unknown")")
                 }
 
