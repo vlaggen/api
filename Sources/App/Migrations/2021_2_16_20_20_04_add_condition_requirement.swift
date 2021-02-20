@@ -9,8 +9,8 @@ struct AddConditionRequirementMigration: Migration {
                 .field(ConditionRequirementDatabaseModel.FieldKeys.conditionId, .uuid, .required)
                 .field(ConditionRequirementDatabaseModel.FieldKeys.requirementId, .uuid, .required)
 
-                .field(RequirementDatabaseModel.FieldKeys.createdAt, .datetime, .required)
-                .field(RequirementDatabaseModel.FieldKeys.updatedAt, .datetime, .required)
+                .field(ConditionRequirementDatabaseModel.FieldKeys.createdAt, .datetime, .required)
+                .field(ConditionRequirementDatabaseModel.FieldKeys.updatedAt, .datetime, .required)
 
                 .create(),
         ])
